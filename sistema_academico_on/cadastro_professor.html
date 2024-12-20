@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<!-- ACRESCENTADO TELA DE CONSULTA,  DEPOIS DO CADASTRO - UTILIZADO COMANDO SELECT -->
+
+<!--https://www.w3schools.com/   site referência
+
+https://pt.stackoverflow.com/questions/280758/mascara-no-form-somente-em-html-e-css
+
+-->
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<title>Cadastro de Professor</title>
+
+	<link rel="stylesheet" type="text/css" href="css/css_login/style.css" />
+
+	<script type="text/javascript" src="java/cadastro.js/"></script>
+</head>
+
+
+
+<body class="geral">
+
+	<header>
+		<video autoplay muted loop>
+			<source src="imagem/Banner_cadastro.mp4" type="video/mp4">
+		</video>
+	</header>
+
+	<h1><strong> CADASTRO DE PROFESSOR </strong></h1>
+
+	<p class="comando">
+		Preencher dados do professor(a)&nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;&nbsp;&nbsp;&nbsp;* campos obrigatórios:
+	</p>
+
+	<br>
+
+	<hr class="centralizado" width="1000">
+
+	<br>
+
+	<div class="cadastro">
+
+		<form name="formprofessores" method="post" action="enviar_professor.php" onsubmit="return testa_form()">
+
+			<!-- &nbsp; "Non-breaking space" - Espaço sem quebra -->
+			<div class="flex">
+				<div>
+					<label for="cpf"><strong> CPF: </strong></label>
+					* <input type="text" id="customer['cpf']" name="cpf" placeholder="    _ _ _._ _ _._ _ _- _ _  "
+						autocomplete="off" oninput="mascara(this, 'cpf')">
+					<p class="legenda"><i>sem espaços, pontos ou traços</i></p>
+				</div>
+
+				<div>
+					<label for="data"><strong>DATA DE NASCIMENTO:</strong></label>
+					<input type="date" id="data" name="data">
+				</div>
+
+				<div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<strong>SEXO:</strong> <input type="radio" name="sexo" value="masculino"> Masculino
+					<input type="radio" name="sexo" value="feminino"> Feminino
+				</div>
+			</div>
+
+
+			<label for="professor"><strong>NOME DO PROFESSOR:</strong></label>
+			* <input type="text" id="professor" name="professor" style="width: 75vw;" />
+
+			<br>
+			<br>
+
+			<label for="endereco"><strong>ENDEREÇO:</strong></label>
+			<input type="text" id="endereco" name="endereco" style="width: 300px;">
+
+			<br>
+			<br>
+
+			<label for="complemento"><strong>COMPLEMENTO:</strong></label>
+			<input type="text" id="complemento" name="complemento" style="width: 263px;">
+
+			<br>
+			<br>
+
+			<label for="cep"><strong></strong>CEP:</label>
+			<input type="text" id="cep" name="cep" placeholder="_ _ _ _ - _ _ _" autocomplete="off"
+				oninput="mascara(this, 'cep')" style="width: 150px;">
+
+			<br>
+			<br>
+
+			<label for="bairro"><strong>BAIRRO:</strong></label>
+			<input type="text" id="bairro" name="bairro" style="width: 327px;"> <br><br>
+
+			<label for="cidade"><strong>CIDADE:</strong></label>
+			<input type="text" id="cidade" name="cidade" /> <br><br>
+
+			<label for="estado"><strong> ESTADO:</strong></label>
+			<select name="estado" id="select" class="botao">
+
+				<option value=""> Selecione o estado:</option>
+				<option value="ac">Acre</option>
+				<option value="al">Alagoas</option>
+				<option value="ap">Amapá</option>
+				<option value="am">Amazonas</option>
+				<option value="ba">Bahia</option>
+				<option value="ce">Ceará</option>
+				<option value="df">Distrito Federal</option>
+				<option value="es">Espírito Santo</option>
+				<option value="go">Goiás</option>
+				<option value="ma">Maranhão</option>
+				<option value="ms">Mato Grosso do Sul</option>
+				<option value="mt">Mato Grosso</option>
+				<option value="mg">Minas Gerais</option>
+				<option value="pa">Pará</option>
+				<option value="pb">Paraíba</option>
+				<option value="pr">Paraná</option>
+				<option value="pe">Pernambuco</option>
+				<option value="pi">Piauí</option>
+				<option value="rj">Rio de Janeiro</option>
+				<option value="rn">Rio Grande do Norte</option>
+				<option value="rs">Rio Grande do Sul</option>
+				<option value="ro">Rondônia</option>
+				<option value="rr">Roraima</option>
+				<option value="sc">Santa Catarina</option>
+				<option value="ac">Acre</option>
+				<option value="sp">São Paulo</option>
+				<option value="se">Sergipe</option>
+				<option value="to">Tocantins</option>
+			</select>
+
+			<br>
+			<br>
+
+			<!-- style - Estilo inline -->
+
+			<label for="telefone"><strong> TELEFONE: </strong></label>
+			<input type="text" id="telefone" name="telefone" placeholder="(_ _) _ _ _ _ - _ _ _ _       "
+				autocomplete="off" style="width: 190px;" oninput="mascara(this, 'tel')">
+
+			<br>
+			<br>
+
+			<label for="formacao"><strong> FORMAÇÃO: </strong></label>
+			<input type="text" id="formacao" name="formacao" style="width: 300px;"> <br><br>
+
+			<label for="titulacao"><strong> TITULAÇÃO: </strong></label>
+			<select name="titulacao" id="select" class="botao">
+
+				<option value=""> Selecione a Titulação:</option>
+				<option value="graduacao">Graduação</option>
+				<option value="mestrado">Mestrado</option>
+				<option value="doutorado">Doutorado</option>
+			</select>	
+		</form>
+	</div>
+
+	<br>
+	<br>
+
+	<button class="btn"><a href="index.html">RETORNAR</a></button>
+	&nbsp;&nbsp;&nbsp;<input type="reset" value="LIMPAR" name="limpar" class="btn">
+	&nbsp;&nbsp;&nbsp;<input type="submit" value="ENVIAR" name="Enviar" class="btn">
+
+	<br>
+
+	<hr class="centralizado" width="1000px">
+
+	<br>
+
+	<li>
+		SisAcademy Code 2024 | made by Sofia.Karina &copy; Todos os direitos reservados
+	</li>
+
+	<li>
+		<a href="mailto:wanderleylb@gmail.com">Author: Wanderley Lopes Batista</a> - WLB Qualidade &
+		Desenvolvimento LTDA - Todos os direitos reservados
+	</li>
+
+	<br>
+	<br>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+	</script>
+
+</body>
+
+
+</html>
